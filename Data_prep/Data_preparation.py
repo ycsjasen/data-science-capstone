@@ -1,3 +1,4 @@
+import numpy as np
 import pandas as pd
 
 #need to figure out how to substring file name for Ticker
@@ -18,5 +19,11 @@ df['SPY_PctDiff'] =  df['IntPctChange'] - SPY['IntPctChange']
 #removing missing values
 df = df.dropna()
 
+#filling missing weekday data
+df['Date'] = pd.to_datetime(df.Date)
+df.set_index('Date', inplace=True)
+df = df.resample('D').ffill().reset_index()
+
+
 #To export dataframe df to .csv file
-#df.to_csv('MSFT_updated.csv', sep=',', index = False)
+#df.to_csv('MSFT_updated1.csv', sep=',', index = False)

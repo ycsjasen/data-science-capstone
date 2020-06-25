@@ -1,29 +1,35 @@
-import numpy as np
 import pandas as pd
+import yfinance as yf
 
-#need to figure out how to substring file name for Ticker
-df = pd.read_csv('../MSFT.csv')
-df['Ticker'] = 'MSFT'
+#pulling stock data
+MSFTdf = yf.download('MSFT', period='1d', start='2016-1-1', end='2018-12-31', auto_adjust = False)
+MSFTdf.index = pd.to_datetime(MSFTdf.index)
+MSFTdf.insert(0, 'Date', MSFTdf.index)
+MSFTdf['Ticker'] = 'MSFT'
 
-SPY = pd.read_csv('../SPY.csv')
-SPY['Ticker'] = 'SPY'
+SPYdf = yf.download('SPY', period='1d', start='2016-1-1', end='2018-12-31', auto_adjust = False)
+SPYdf.index = pd.to_datetime(SPYdf.index)
+SPYdf.insert(0, 'Date', SPYdf.index)
+SPYdf['Ticker'] = 'SPY'
 
-#calculating derived variables
-df['Intraday Range'] = abs(df['Open'] - df['High'])
-df['IntChange'] = df['Adj Close'].diff()
-df['IntPctChange'] = df['Adj Close'].pct_change()*100
-df['200SMA'] = df['Adj Close'].rolling(window = 200).mean()
-SPY['IntPctChange'] = SPY['Adj Close'].pct_change()*100
-df['SPY_PctDiff'] =  df['IntPctChange'] - SPY['IntPctChange']
-
-#removing missing values
-df = df.dropna()
+#calculate 200 day Simple Moving Average
+MSFTdf['200SMA'] = MSFTdf['Close'].rolling(window = 200).mean()
 
 #filling missing weekday data
-df['Date'] = pd.to_datetime(df.Date)
-df.set_index('Date', inplace=True)
-df = df.resample('D').ffill().reset_index()
+MSFTdf.set_index('Date', inplace=True)
+MSFTdf = MSFTdf.resample('D').ffill().reset_index()
+SPYdf.set_index('Date', inplace=True)
+SPYdf = SPYdf.resample('D').ffill().reset_index()
 
+#calculating derived variables
+MSFTdf['Intraday Range'] = abs(MSFTdf['Open'] - MSFTdf['High'])
+MSFTdf['IntChange'] = MSFTdf['Close'].diff()
+MSFTdf['IntPctChange'] = MSFTdf['Close'].pct_change() * 100
+SPYdf['IntPctChange'] = SPYdf['Close'].pct_change() * 100
+MSFTdf['SPY_PctDiff'] = MSFTdf['IntPctChange'] - SPYdf['IntPctChange']
 
-#To export dataframe df to .csv file
-#df.to_csv('MSFT_updated1.csv', sep=',', index = False)
+#removing missing values
+MSFTdf = MSFTdf.dropna()
+
+#To export dataframe to .csv file
+#MSFTdf.to_csv('MSFT_updated.csv', sep=',', index = False)

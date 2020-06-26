@@ -10,7 +10,7 @@ plt.ylabel('Price', fontsize = 16)
 for year in range(2017,2019):
     plt.axvline(pd.to_datetime(str(year)+'-01-01'),color='k', linestyle= '--', alpha=0.2)
 plt.axhline(MSFTdf.Close.mean(), color='r', alpha =0.2, linestyle='--')
-#plt.savefig('Closing price MSFT')
+plt.savefig('Closing price MSFT')
 
 # plotting first difference data
 plt.figure(figsize=(10,4))
@@ -20,17 +20,17 @@ plt.ylabel('Price', fontsize = 16)
 for year in range(2017,2019):
     plt.axvline(pd.to_datetime(str(year)+'-01-01'),color='k', linestyle= '--', alpha=0.2)
 plt.axhline(MSFTdf.IntChange.mean(), color='r', alpha =0.2, linestyle='--')
-#plt.savefig('First Differences MSFT')
+plt.savefig('First Differences MSFT')
 
 # plotting SARIMA residuals
 plt.figure(figsize=(10,4))
 plt.plot(sarima_residuals)
-plt.title('Residuals from ARIMA Model', fontsize = 20)
+plt.title('Residuals from SARIMA Model', fontsize = 20)
 plt.ylabel('Error', fontsize=16)
 plt.axhline(sarima_residuals.mean(), color = 'r', linestyle='--', alpha = 0.2)
 for year in range(2019,2019):
     plt.axvline(pd.to_datetime(str(year) + '-01-01'), color='k', linestyle='--', alpha=0.2)
-#plt.savefig('Residuals SARIMA')
+plt.savefig('Residuals SARIMA')
 
 # plotting prediction and test data
 plt.figure(figsize=(10,4))
@@ -42,5 +42,5 @@ plt.ylabel('Price', fontsize = 16)
 for year in range(2019,2019):
     plt.axvline(pd.to_datetime(str(year)+'-01-01'),color='k', linestyle= '--', alpha=0.2)
 plt.axhline(test_data.mean(), color='r', alpha =0.2, linestyle='--')
-#plt.savefig('Predicted SARIMA')
+plt.savefig('Predicted SARIMA')
 plt.show()

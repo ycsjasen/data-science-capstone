@@ -6,8 +6,8 @@ from time import time
 from statsmodels.tsa.statespace.sarimax import SARIMAX
 
 # Getting Training set
-train_end = datetime(2018, 9, 30)
-test_end = datetime(2018, 12, 31)
+train_end = datetime(2018, 1, 1)
+test_end = datetime(2018, 9, 30)
 train_data = MSFTdf.Close[:train_end]
 test_data = MSFTdf.Close[train_end + timedelta(days=1):test_end]
 

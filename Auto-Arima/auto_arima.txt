@@ -1,0 +1,33 @@
+Performing stepwise search to minimize aic
+Fit ARIMA(1,1,1)x(0,1,1,12) [intercept=True]; AIC=2402.466, BIC=2425.827, Time=9.293 seconds
+Fit ARIMA(0,1,0)x(0,1,0,12) [intercept=True]; AIC=2971.764, BIC=2981.108, Time=0.061 seconds
+Fit ARIMA(1,1,0)x(1,1,0,12) [intercept=True]; AIC=2691.228, BIC=2709.916, Time=0.996 seconds
+Fit ARIMA(0,1,1)x(0,1,1,12) [intercept=True]; AIC=2405.362, BIC=2424.051, Time=5.818 seconds
+Near non-invertible roots for order (0, 1, 1)(0, 1, 1, 12); setting score to inf (at least one inverse root too close to the border of the unit circle: 1.000)
+Fit ARIMA(0,1,0)x(0,1,0,12) [intercept=False]; AIC=2969.799, BIC=2974.471, Time=0.059 seconds
+Fit ARIMA(1,1,1)x(0,1,0,12) [intercept=True]; AIC=2955.548, BIC=2974.236, Time=0.660 seconds
+Fit ARIMA(1,1,1)x(1,1,1,12) [intercept=True]; AIC=2393.784, BIC=2421.816, Time=7.365 seconds
+Near non-invertible roots for order (1, 1, 1)(1, 1, 1, 12); setting score to inf (at least one inverse root too close to the border of the unit circle: 1.000)
+Fit ARIMA(1,1,1)x(0,1,2,12) [intercept=True]; AIC=2393.960, BIC=2421.992, Time=23.357 seconds
+Near non-invertible roots for order (1, 1, 1)(0, 1, 2, 12); setting score to inf (at least one inverse root too close to the border of the unit circle: 0.999)
+Fit ARIMA(1,1,1)x(1,1,0,12) [intercept=True]; AIC=2686.757, BIC=2710.117, Time=1.931 seconds
+Fit ARIMA(1,1,1)x(1,1,2,12) [intercept=True]; AIC=2397.955, BIC=2430.659, Time=25.891 seconds
+Near non-invertible roots for order (1, 1, 1)(1, 1, 2, 12); setting score to inf (at least one inverse root too close to the border of the unit circle: 0.998)
+Fit ARIMA(1,1,0)x(0,1,1,12) [intercept=True]; AIC=2408.084, BIC=2426.772, Time=4.905 seconds
+Near non-invertible roots for order (1, 1, 0)(0, 1, 1, 12); setting score to inf (at least one inverse root too close to the border of the unit circle: 1.000)
+Fit ARIMA(2,1,1)x(0,1,1,12) [intercept=True]; AIC=2397.046, BIC=2425.078, Time=8.372 seconds
+Near non-invertible roots for order (2, 1, 1)(0, 1, 1, 12); setting score to inf (at least one inverse root too close to the border of the unit circle: 1.000)
+Fit ARIMA(1,1,2)x(0,1,1,12) [intercept=True]; AIC=2398.592, BIC=2426.624, Time=8.372 seconds
+Near non-invertible roots for order (1, 1, 2)(0, 1, 1, 12); setting score to inf (at least one inverse root too close to the border of the unit circle: 1.000)
+Fit ARIMA(0,1,0)x(0,1,1,12) [intercept=True]; AIC=2417.879, BIC=2431.895, Time=3.165 seconds
+Near non-invertible roots for order (0, 1, 0)(0, 1, 1, 12); setting score to inf (at least one inverse root too close to the border of the unit circle: 1.000)
+Fit ARIMA(0,1,2)x(0,1,1,12) [intercept=True]; AIC=2401.692, BIC=2425.052, Time=6.818 seconds
+Near non-invertible roots for order (0, 1, 2)(0, 1, 1, 12); setting score to inf (at least one inverse root too close to the border of the unit circle: 1.000)
+Fit ARIMA(2,1,0)x(0,1,1,12) [intercept=True]; AIC=2400.246, BIC=2423.606, Time=5.314 seconds
+Near non-invertible roots for order (2, 1, 0)(0, 1, 1, 12); setting score to inf (at least one inverse root too close to the border of the unit circle: 1.000)
+Fit ARIMA(2,1,2)x(0,1,1,12) [intercept=True]; AIC=2406.480, BIC=2439.184, Time=10.870 seconds
+Near non-invertible roots for order (2, 1, 2)(0, 1, 1, 12); setting score to inf (at least one inverse root too close to the border of the unit circle: 0.999)
+Total fit time: 123.253 seconds
+2393.784250770464
+
+Process finished with exit code 0

@@ -1,0 +1,41 @@
+Iteration:      1,   Func. Count:      6,   Neg. LLF: 775.3523888694555
+Iteration:      2,   Func. Count:     16,   Neg. LLF: 774.0882641244027
+Iteration:      3,   Func. Count:     26,   Neg. LLF: 773.9977035748489
+Iteration:      4,   Func. Count:     33,   Neg. LLF: 773.1976572830893
+Iteration:      5,   Func. Count:     41,   Neg. LLF: 773.1300066262743
+Iteration:      6,   Func. Count:     48,   Neg. LLF: 772.6215697203422
+Iteration:      7,   Func. Count:     54,   Neg. LLF: 772.5852618802561
+Iteration:      8,   Func. Count:     60,   Neg. LLF: 772.58280963422
+Iteration:      9,   Func. Count:     66,   Neg. LLF: 772.582715871187
+Iteration:     10,   Func. Count:     72,   Neg. LLF: 772.5826932823243
+Optimization terminated successfully.    (Exit mode 0)
+            Current function value: 772.5826932824856
+            Iterations: 10
+            Function evaluations: 72
+            Gradient evaluations: 10
+                     Constant Mean - GARCH Model Results                      
+==============================================================================
+Dep. Variable:              IntChange   R-squared:                      -0.000
+Mean Model:             Constant Mean   Adj. R-squared:                 -0.000
+Vol Model:                      GARCH   Log-Likelihood:               -772.583
+Distribution:                  Normal   AIC:                           1553.17
+Method:            Maximum Likelihood   BIC:                           1570.89
+                                        No. Observations:                  621
+Date:                Wed, Jul 01 2020   Df Residuals:                      617
+Time:                        23:30:30   Df Model:                            4
+                                Mean Model                                
+==========================================================================
+                 coef    std err          t      P>|t|    95.0% Conf. Int.
+--------------------------------------------------------------------------
+mu             0.0926  3.257e-02      2.842  4.485e-03 [2.872e-02,  0.156]
+                              Volatility Model                             
+===========================================================================
+                 coef    std err          t      P>|t|     95.0% Conf. Int.
+---------------------------------------------------------------------------
+omega          0.1388  7.630e-02      1.819  6.885e-02 [-1.072e-02,  0.288]
+alpha[1]       0.1880  8.125e-02      2.313  2.071e-02  [2.870e-02,  0.347]
+beta[1]        0.6438      0.118      5.435  5.491e-08    [  0.412,  0.876]
+===========================================================================
+
+Covariance estimator: robust
+

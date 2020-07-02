@@ -1,18 +1,12 @@
-from Data_prep.Data_preparation import MSFTdf
+from Data_prep.Data_preparation import train_data, test_data
 import numpy as np
-from datetime import datetime
-from datetime import timedelta
 from time import time
 from statsmodels.tsa.statespace.sarimax import SARIMAX
 
-# Getting Training set
-train_end = datetime(2018, 1, 1)
-test_end = datetime(2018, 9, 30)
-train_data = MSFTdf.Close[:train_end]
-test_data = MSFTdf.Close[train_end + timedelta(days=1):test_end]
-
 # Building SARIMA(1,1,1)(0,1,2)12 model
-sarima_model = SARIMAX(train_data, order = (1,1,1), seasonal_order=(0,1,2,12))
+sarima_order = (1,1,1)
+season_order = (0,1,2,12)
+sarima_model = SARIMAX(train_data, order = sarima_order, seasonal_order=season_order)
 start = time()
 sarima_model_fit = sarima_model.fit()
 end = time()

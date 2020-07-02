@@ -1,18 +1,11 @@
-from Data_prep.Data_preparation import MSFTdf
+from Data_prep.Data_preparation import MSFTdf, test_data
 import numpy as np
-from datetime import datetime
-from datetime import timedelta
 from time import time
 from statsmodels.tsa.arima_model import ARIMA
 
-# Getting Training set
-train_end = datetime(2018,1,1)
-test_end = datetime(2018,9,30)
-train_data = MSFTdf.Close[:train_end]
-test_data = MSFTdf.Close[train_end + timedelta(days=1):test_end]
-
 # Building ARIMA(3,1,3) model
-model = ARIMA(train_data, order=(3,1,3))
+arima_order = (3, 1, 3)
+model = ARIMA(MSFTdf.Close, order=arima_order)
 start = time()
 model_fit = model.fit()
 end = time()

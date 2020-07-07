@@ -74,12 +74,12 @@ lstm_residuals = lstm_predictions - y_test
 
 # Plot data
 train_plot = data[:train_len]
-valid = data[train_len:]
-valid['Predictions'] = lstm_predictions
+final = data[train_len:]
+final['Predictions'] = lstm_predictions
 
 plt.figure(figsize=(10, 4))
-plt.plot(valid['Close'])
-plt.plot(valid['Predictions'])
+plt.plot(final['Close'])
+plt.plot(final['Predictions'])
 plt.legend(('Data', 'Predictions'), fontsize=16)
 plt.title('MSFT closing prices over time')
 plt.ylabel('Price', fontsize = 16)

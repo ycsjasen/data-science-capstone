@@ -1,0 +1,2 @@
+LSTM Root Mean Squared Error: 1.2559125881820687
+LSTM Mean Absolute Percent Error: 0.9315 %

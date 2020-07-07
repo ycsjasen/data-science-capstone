@@ -10,14 +10,15 @@ train_end = datetime(2018, 6, 22)
 test_end = datetime(2018, 10, 1)
 
 # pulling stock data
-MSFTdf = yf.download('MSFT', period='1d', start=startdate, end=enddate, auto_adjust = False)
+MSFTdf = yf.download('MSFT', period='1d', start=startdate, end=enddate, auto_adjust=False)
 MSFTdf.index = pd.to_datetime(MSFTdf.index)
 MSFTdf.insert(0, 'Date', MSFTdf.index)
 MSFTdf['Ticker'] = 'MSFT'
 
 # calculating derived variables
 MSFTdf['IntChange'] = MSFTdf['Close'].diff()
-MSFTdf['Volatility'] = MSFTdf['IntChange'].rolling(window=2).std() * np.sqrt(len(MSFTdf)) * 0.01 + 0.8
+MSFTdf['Returns'] = MSFTdf['Close'].pct_change() * 100
+MSFTdf['Volatility'] = MSFTdf['IntChange'].rolling(window=2).std() * np.sqrt(len(MSFTdf)) * 0.01 + 1
 
 # removing missing values
 MSFTdf = MSFTdf.dropna()
@@ -26,5 +27,9 @@ MSFTdf = MSFTdf.dropna()
 MSFTdf.set_index('Date', inplace=True)
 
 # building Training set
-train_data = MSFTdf.IntChange[:train_end]
-test_data = MSFTdf.IntChange[train_end + timedelta(days=1):test_end]
+train_data = MSFTdf.Returns[:train_end]
+test_data = MSFTdf.Returns[train_end + timedelta(days=1):test_end]
+
+# Setting test size
+test_size = len(test_data)
+data_vol = MSFTdf.Volatility[-test_size:]

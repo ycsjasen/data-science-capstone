@@ -1,0 +1,4 @@
+Add ES Root Mean Squared Error: 5.519313128224801
+Add ES Mean Absolute Percent Error: 4.4747 %
+Mul ES Root Mean Squared Error: 4.152653484272346
+Mul ES Mean Absolute Percent Error: 3.3736 %

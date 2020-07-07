@@ -1,0 +1,29 @@
+                           AR - GARCH Model Results                           
+==============================================================================
+Dep. Variable:                Returns   R-squared:                      -0.001
+Mean Model:                        AR   Adj. R-squared:                 -0.001
+Vol Model:                      GARCH   Log-Likelihood:               -1111.79
+Distribution:                  Normal   AIC:                           2231.58
+Method:            Maximum Likelihood   BIC:                           2249.71
+                                        No. Observations:                  688
+Date:                Tue, Jul 07 2020   Df Residuals:                      684
+Time:                        00:25:27   Df Model:                            4
+                                Mean Model                                
+==========================================================================
+                 coef    std err          t      P>|t|    95.0% Conf. Int.
+--------------------------------------------------------------------------
+Const          0.1615  4.704e-02      3.433  5.972e-04 [6.928e-02,  0.254]
+                             Volatility Model                             
+==========================================================================
+                 coef    std err          t      P>|t|    95.0% Conf. Int.
+--------------------------------------------------------------------------
+omega          0.3693      0.157      2.345  1.902e-02 [6.064e-02,  0.678]
+alpha[1]       0.2056  9.567e-02      2.149  3.167e-02 [1.805e-02,  0.393]
+beta[1]        0.5787      0.119      4.854  1.209e-06   [  0.345,  0.812]
+==========================================================================
+
+Covariance estimator: robust
+GARCH Root Mean Squared Error: 0.5633578276605413
+GARCH Mean Absolute Percent Error: 44.7571 %
+GARCH (rolling origin) Root Mean Squared Error: 0.2002258447620755
+GARCH (rolling origin) Mean Absolute Percent Error: 11.4733 %

@@ -18,7 +18,7 @@ MSFTdf['Ticker'] = 'MSFT'
 # calculating derived variables
 MSFTdf['IntChange'] = MSFTdf['Close'].diff()
 MSFTdf['Returns'] = MSFTdf['Close'].pct_change() * 100
-MSFTdf['Volatility'] = MSFTdf['IntChange'].rolling(window=2).std() * np.sqrt(len(MSFTdf)) * 0.01 + 1
+MSFTdf['Volatility'] = MSFTdf['IntChange'].rolling(window=2).std() * np.sqrt(len(MSFTdf)) * 0.01
 
 # removing missing values
 MSFTdf = MSFTdf.dropna()

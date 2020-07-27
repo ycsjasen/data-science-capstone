@@ -1,29 +1,29 @@
-                                      SARIMAX Results                                       
-============================================================================================
-Dep. Variable:                                Close   No. Observations:                  900
-Model:             SARIMAX(2, 1, 2)x(0, 1, [1], 12)   Log Likelihood               -1038.903
-Date:                              Tue, 07 Jul 2020   AIC                           2089.805
-Time:                                      00:27:21   BIC                           2118.532
-Sample:                                  01-05-2016   HQIC                          2100.787
-                                       - 06-22-2018                                         
-Covariance Type:                                opg                                         
+                                     SARIMAX Results                                     
+=========================================================================================
+Dep. Variable:                             Close   No. Observations:                  900
+Model:             SARIMAX(1, 1, 1)x(1, 1, 1, 7)   Log Likelihood               -1043.408
+Date:                           Sun, 26 Jul 2020   AIC                           2096.816
+Time:                                   16:11:03   BIC                           2120.784
+Sample:                               01-05-2016   HQIC                          2105.976
+                                    - 06-22-2018                                         
+Covariance Type:                             opg                                         
 ==============================================================================
                  coef    std err          z      P>|z|      [0.025      0.975]
 ------------------------------------------------------------------------------
-ar.L1         -1.1999      0.017    -72.162      0.000      -1.232      -1.167
-ar.L2         -0.9575      0.015    -64.985      0.000      -0.986      -0.929
-ma.L1          1.1652      0.028     42.242      0.000       1.111       1.219
-ma.L2          0.8919      0.024     37.056      0.000       0.845       0.939
-ma.S.L12      -0.9607      0.015    -64.078      0.000      -0.990      -0.931
-sigma2         0.5880      0.012     49.098      0.000       0.565       0.612
+ar.L1          0.2401      0.142      1.692      0.091      -0.038       0.518
+ma.L1         -0.3840      0.140     -2.745      0.006      -0.658      -0.110
+ar.S.L7       -0.1592      0.024     -6.648      0.000      -0.206      -0.112
+ma.S.L7       -0.9876      0.008   -127.757      0.000      -1.003      -0.972
+sigma2         0.5888      0.012     50.504      0.000       0.566       0.612
 ===================================================================================
-Ljung-Box (Q):                       75.26   Jarque-Bera (JB):              4432.08
+Ljung-Box (Q):                       92.17   Jarque-Bera (JB):              5114.23
 Prob(Q):                              0.00   Prob(JB):                         0.00
-Heteroskedasticity (H):               2.40   Skew:                             0.08
-Prob(H) (two-sided):                  0.00   Kurtosis:                        13.95
+Heteroskedasticity (H):               2.50   Skew:                             0.20
+Prob(H) (two-sided):                  0.00   Kurtosis:                        14.72
 ===================================================================================
 
 Warnings:
 [1] Covariance matrix calculated using the outer product of gradients (complex-step).
-SARIMA Root Mean Squared Error: 4.5970179929154495
-SARIMA Mean Absolute Percent Error: 3.7285 %
+SARIMA Root Mean Squared Error: 5.070218512443907
+SARIMA Normal Root Mean Squared Error: 0.04716571852874696
+SARIMA Mean Absolute Percent Error: 4.1184 %

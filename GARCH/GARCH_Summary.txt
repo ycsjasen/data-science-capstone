@@ -6,8 +6,8 @@ Vol Model:                      GARCH   Log-Likelihood:               -1111.79
 Distribution:                  Normal   AIC:                           2231.58
 Method:            Maximum Likelihood   BIC:                           2249.71
                                         No. Observations:                  688
-Date:                Tue, Jul 07 2020   Df Residuals:                      684
-Time:                        00:25:27   Df Model:                            4
+Date:                Mon, Jul 27 2020   Df Residuals:                      684
+Time:                        01:17:54   Df Model:                            4
                                 Mean Model                                
 ==========================================================================
                  coef    std err          t      P>|t|    95.0% Conf. Int.
@@ -23,7 +23,9 @@ beta[1]        0.5787      0.119      4.854  1.209e-06   [  0.345,  0.812]
 ==========================================================================
 
 Covariance estimator: robust
-GARCH Root Mean Squared Error: 0.5633578276605413
-GARCH Mean Absolute Percent Error: 44.7571 %
-GARCH (rolling origin) Root Mean Squared Error: 0.2002258447620755
-GARCH (rolling origin) Mean Absolute Percent Error: 11.4733 %
+GARCH Root Mean Squared Error: 1.530553533959911
+GARCH Normal Root Mean Squared Error: 6.215229546802322
+GARCH Mean Absolute Percent Error: 1788.43 %
+GARCH (rolling origin) Root Mean Squared Error: 0.9804602537122096
+GARCH (rolling origin) N Root Mean Squared Error: 6.215229546802322
+GARCH (rolling origin) Mean Absolute Percent Error: 1133.3033 %

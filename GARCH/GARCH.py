@@ -4,10 +4,10 @@ from arch import arch_model
 from time import time
 import numpy as np
 from GARCH_data import MSFTdf, train_data, test_data, test_size, data_vol
-from statsmodels.graphics.tsaplots import plot_acf
+from statsmodels.graphics.tsaplots import plot_pacf
 
 # Generating PACF of squared returns
-garch_pacf = plot_acf(MSFTdf.Returns**2)
+garch_pacf = plot_pacf(MSFTdf.Returns**2)
 plt.show()
 
 # GARCH(1,1) model
@@ -24,6 +24,7 @@ garch_pred = pd.Series(garch_predictions.variance.values[-1, :], index=MSFTdf.In
 garch_residuals = garch_pred - data_vol
 print(garch_model_fit)
 print('GARCH Root Mean Squared Error:', np.sqrt(np.mean(garch_residuals**2)))
+print('GARCH Normal Root Mean Squared Error:', np.sqrt(np.mean(garch_residuals**2))/abs(np.mean(data_vol)))
 print('GARCH Mean Absolute Percent Error:', round(np.mean(abs(garch_residuals/data_vol))*100, 4), '%')
 print('GARCH Model Fitting Time:', timer_end - timer_start)
 
@@ -32,7 +33,7 @@ plt.figure(figsize=(10, 4))
 plt.plot(data_vol)
 plt.plot(garch_pred)
 plt.legend(('Data', 'Prediction'), fontsize=16)
-plt.title('Volatility in price first differences over time')
+plt.title('GARCH - Volatility in price first differences over time')
 plt.ylabel('Volatility', fontsize=16)
 plt.savefig('Predicted GARCH')
 plt.show()
@@ -53,6 +54,7 @@ roll = pd.Series(roll, index=MSFTdf.IntChange.index[-test_size:])
 # Calculating summary statistics for rolling origin
 roll_residuals = roll - data_vol
 print('GARCH (rolling origin) Root Mean Squared Error:', np.sqrt(np.mean(roll_residuals**2)))
+print('GARCH (rolling origin) N Root Mean Squared Error:', np.sqrt(np.mean(garch_residuals**2))/abs(np.mean(data_vol)))
 print('GARCH (rolling origin) Mean Absolute Percent Error:', round(np.mean(abs(roll_residuals/data_vol))*100, 4), '%')
 print('GARCH (rolling origin) Model Fitting Time:', timer_end - timer_start)
 
@@ -69,7 +71,11 @@ plt.show()
 with open('GARCH_Summary.txt', 'w') as wfile:
     wfile.write(garch_model_fit.summary().as_text())
     print('\nGARCH Root Mean Squared Error:', np.sqrt(np.mean(garch_residuals**2)), file=wfile)
+    print('GARCH Normal Root Mean Squared Error:', np.sqrt(np.mean(garch_residuals ** 2)) / abs(np.mean(data_vol)),
+          file=wfile)
     print('GARCH Mean Absolute Percent Error:', round(np.mean(abs(garch_residuals/data_vol))*100, 4), '%', file=wfile)
     print('GARCH (rolling origin) Root Mean Squared Error:', np.sqrt(np.mean(roll_residuals**2)), file=wfile)
+    print('GARCH (rolling origin) N Root Mean Squared Error:',
+          np.sqrt(np.mean(garch_residuals ** 2)) / abs(np.mean(data_vol)), file=wfile)
     print('GARCH (rolling origin) Mean Absolute Percent Error:', round(np.mean(abs(roll_residuals/data_vol))*100, 4),
           '%', file=wfile)

@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from sklearn.preprocessing import MinMaxScaler
 from keras.models import Sequential
 from keras.layers import Dense, LSTM
-from Data_prep.Data_preparation import MSFTdf, train_data
+from GARCH.GARCH_data import MSFTdf, train_data
 from time import time
 import warnings
 warnings.filterwarnings("ignore")
@@ -11,7 +11,7 @@ warnings.filterwarnings("ignore")
 train_len = len(train_data)
 
 # Scaling data
-data = MSFTdf.filter(['Close'])
+data = MSFTdf.filter(['Volatility'])
 data_values = data.values
 scaler = MinMaxScaler(feature_range=(0, 1))
 scaled_data = scaler.fit_transform(data_values)
@@ -21,7 +21,7 @@ train = scaled_data[0:train_len, :]
 x_train = []
 y_train = []
 
-for i in range(60,len(train)):
+for i in range(60, len(train)):
     x_train.append(train[i-60:i, 0])
     y_train.append(train[i, 0])
 
@@ -78,19 +78,19 @@ lstm_final = data[train_len:]
 lstm_final['Predictions'] = lstm_predictions
 
 plt.figure(figsize=(10, 4))
-plt.plot(lstm_final['Close'])
+plt.plot(lstm_final['Volatility'])
 plt.plot(lstm_final['Predictions'])
 plt.legend(('Data', 'Predictions'), fontsize=16)
-plt.title('LSTM - MSFT closing prices over time')
-plt.ylabel('Price', fontsize=16)
-plt.savefig('Predicted LSTM')
+plt.title('LSTM - MSFT price volatility over time')
+plt.ylabel('Volatility', fontsize=16)
+plt.savefig('Volatility LSTM')
 plt.show()
 
 print('LSTM Root Mean Squared Error:', np.sqrt(np.mean(lstm_residuals ** 2)))
 print('LSTM Normal Root Mean Squared Error:', np.sqrt(np.mean(lstm_residuals ** 2))/abs(np.mean(y_test)))
 print('LSTM Mean Absolute Percent Error:', round(np.mean(abs(lstm_residuals / y_test)) * 100, 4), '%')
 print('LSTM Model Fitting Time:', timer_end - timer_start)
-with open('LSTM_Summary.txt', 'w') as wfile:
+with open('LSTM_Volatility.txt', 'w') as wfile:
     print('LSTM Root Mean Squared Error:', np.sqrt(np.mean(lstm_residuals ** 2)), file=wfile)
     print('LSTM Normal Root Mean Squared Error:', np.sqrt(np.mean(lstm_residuals ** 2)) / abs(np.mean(y_test)),
           file=wfile)
